@@ -1,22 +1,20 @@
 function getComputerChoice() {
-  const choice = Math.floor(Math.random() * 3);
-  switch (choice) {
-    case 0:
-      return "Rock";
-    case 1:
-      return "Paper";
-    case 2:
-      return "Scissors";
-  }
+  return Math.floor(Math.random() * 3);
 }
 
 function getPlayerChoice() {
   const choice = prompt("What's your choice?").toLowerCase();
-  if (choice != "rock" && choice != "paper" && choice != "scissors") {
-    return null;
+  switch (choice){
+    case 'rock':
+        return 0;
+    case 'paper':
+        return 1;
+    case 'scissors':
+        return 2;
   }
-  return choice;
 }
+
+
 
 console.log(getComputerChoice());
 console.log(getPlayerChoice())
