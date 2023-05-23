@@ -59,8 +59,11 @@ function set_winner(winner){
 
 function restart(){
     const scoreboard = document.querySelector('.scoreboard');
+    const scorebox = document.querySelector('.scorebox');
+    scorebox.querySelector('#winner').textContent = '';
     scores = scoreboard.querySelectorAll('span');
     scores.forEach((e)=> console.log(e.textContent = '0'));
+    
 }
 
 function execute(){
@@ -90,6 +93,7 @@ function execute(){
     }
     
 }
-
+const restart_button = document.querySelector('.restart')
+restart_button.addEventListener('click', restart);
 const buttons = document.querySelectorAll('.choice')
 buttons.forEach((button) => button.addEventListener('click', execute))
