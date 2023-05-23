@@ -57,12 +57,18 @@ function set_winner(winner){
     }
 }
 
-function restart(){
+function restart(endgame){
     const scoreboard = document.querySelector('.scoreboard');
     const scorebox = document.querySelector('.scorebox');
+    if (endgame || scorebox.lastChild.tagName === "H3") {
+        h3 = document.querySelector('h3');
+        h3.remove();
+    }
+    
     scorebox.querySelector('#winner').textContent = '';
     scores = scoreboard.querySelectorAll('span');
     scores.forEach((e)=> console.log(e.textContent = '0'));
+    
     
 }
 
@@ -79,9 +85,7 @@ function execute(){
     
     const scoreboard = document.querySelector('.scoreboard');
     if (scorebox.lastChild.tagName === "H3"){
-        h3 = document.querySelector('h3');
-        h3.remove();
-        restart();
+        restart(1)
     }
     if (set_winner(res) == 'tie') return
     score = scoreboard.querySelector(`#${set_winner(res)}`).querySelector('span')
@@ -94,6 +98,6 @@ function execute(){
     
 }
 const restart_button = document.querySelector('.restart')
-restart_button.addEventListener('click', restart);
+restart_button.addEventListener('click', ()=>{restart(0)});
 const buttons = document.querySelectorAll('.choice')
 buttons.forEach((button) => button.addEventListener('click', execute))
