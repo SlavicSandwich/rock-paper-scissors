@@ -27,7 +27,7 @@ function playMatch(playerChoice, computerChoice){
 
 }
 
-function align(choice){
+function to_string(choice){
     switch(choice){
         case 0:
             return "rock";
@@ -37,14 +37,59 @@ function align(choice){
             return "scirssors"
     }
 }
-while (true){
-    let computerChoice = getComputerChoice()
-    let playerChoice = getPlayerChoice()
-    if (playerChoice === null){continue;}
-    console.log(`${align(playerChoice)} vs ${align(computerChoice)}...\n`)
-    switch(playMatch(playerChoice, computerChoice)){
-        case 1:{console.log("Player wins!"); break;}
-        case 0:{console.log("Computer wins!"); break;}
-        case 2:{console.log("Tie!"); break;}
+
+function to_num(choice){
+    switch(choice){
+        case 'Rock':
+            return 0;
+        case 'Paper':
+            return 1;
+        case "Scissors":
+            return 2;
     }
 }
+
+function set_winner(winner){
+    switch(winner){
+        case 1:return 'player';
+        case 0:return 'computer';
+        case 2:return 'tie';
+    }
+}
+
+function restart(){
+    const scoreboard = document.querySelector('.scoreboard');
+    scores = scoreboard.querySelectorAll('span');
+    scores.forEach((e)=> console.log(e.textContent = '0'));
+}
+
+function execute(){
+    const scorebox = document.querySelector('.scorebox');
+    let res = (playMatch(to_num(this.textContent), getComputerChoice()))
+
+    switch(res){
+           case 1:{scorebox.querySelector('#winner').textContent = "Player wins!"; break;}
+           case 0:{scorebox.querySelector('#winner').textContent ="Computer wins!"; break;}
+           case 2:{scorebox.querySelector('#winner').textContent ="Tie!"; break;}
+    }
+
+    
+    const scoreboard = document.querySelector('.scoreboard');
+    if (scorebox.lastChild.tagName === "H3"){
+        h3 = document.querySelector('h3');
+        h3.remove();
+        restart();
+    }
+    if (set_winner(res) == 'tie') return
+    score = scoreboard.querySelector(`#${set_winner(res)}`).querySelector('span')
+    score.textContent = +score.textContent + 1;
+    if (score.textContent == 5){
+        h3 = document.createElement('h3');
+        h3.textContent = `${set_winner(res)} wins!`
+        scorebox.appendChild(h3);
+    }
+    
+}
+
+const buttons = document.querySelectorAll('.choice')
+buttons.forEach((button) => button.addEventListener('click', execute))
