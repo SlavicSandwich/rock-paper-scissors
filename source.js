@@ -67,11 +67,12 @@ function restart(endgame){
     
     scorebox.querySelector('#winner').textContent = '';
     scores = scoreboard.querySelectorAll('span');
-    scores.forEach((e)=> console.log(e.textContent = '0'));
-    
-    
+    scores.forEach((e)=> e.textContent = '0');
+        
 }
-
+function stopShake(e){
+    e.target.classList.remove('shake')
+}
 function execute(){
     const scorebox = document.querySelector('.scorebox');
     let res = (playMatch(to_num(this.textContent), getComputerChoice()))
@@ -89,15 +90,17 @@ function execute(){
     }
     if (set_winner(res) == 'tie') return
     score = scoreboard.querySelector(`#${set_winner(res)}`).querySelector('span')
+    score.parentNode.parentNode.classList.add('shake');
     score.textContent = +score.textContent + 1;
     if (score.textContent == 5){
         h3 = document.createElement('h3');
         h3.textContent = `${set_winner(res)} wins!`
         scorebox.appendChild(h3);
     }
-    
 }
 const restart_button = document.querySelector('.restart')
 restart_button.addEventListener('click', ()=>{restart(0)});
 const buttons = document.querySelectorAll('.choice')
 buttons.forEach((button) => button.addEventListener('click', execute))
+const scoretexts= document.querySelectorAll('.score');
+scoretexts.forEach(score=>score.addEventListener('animationend', stopShake))
