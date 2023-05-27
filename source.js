@@ -57,17 +57,22 @@ function set_winner(winner){
     }
 }
 
-function restart(endgame){
+function restart(){
     const scoreboard = document.querySelector('.scoreboard');
     const scorebox = document.querySelector('.scorebox');
-    scorebox.querySelector('#winner').textContent = '';
+    scorebox.querySelector('.score-info').textContent = 'Choose your weapon';
     scores = scoreboard.querySelectorAll('span');
     scores.forEach((e)=> e.textContent = '0');
+    scorebox.querySelector("#player").querySelector('.sign').textContent = "❔";
+    scorebox.querySelector("#computer").querySelector('.sign').textContent = "❔";
+    off();
         
 }
 function stopShake(e){
     e.target.classList.remove('shake')
 }
+
+
 function execute(){
     const scorebox = document.querySelector('.scorebox');
 
@@ -89,9 +94,31 @@ function execute(){
     if (set_winner(res) != 'tie'){
         score = scorebox.querySelector(`#${set_winner(res)}`).querySelector('span');
         score.textContent = +score.textContent + 1;
+        if (score.textContent === '5'){
+            on();
+        }
     }
+
+    
 }
-const restart_button = document.querySelector('.restart')
+
+function on() {
+    document.getElementById("overlay").style.display = "flex";
+    document.getElementById("overlay").style.justifyContent = 'center'
+    document.getElementById("overlay").style.alignItems = 'center';
+  }
+  
+  function off() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("overlay").style.justifyContent = 'none'
+    document.getElementById("overlay").style.alignItems = 'none';
+  }
+
+const restart_button = document.querySelector('.restart');
 restart_button.addEventListener('click', ()=>{restart(0)});
-const buttons = document.querySelectorAll('.choice')
-buttons.forEach((button) => button.addEventListener('click', execute))
+const buttons = document.querySelectorAll('.choice');
+buttons.forEach((button) => button.addEventListener('click', execute));
+const overlay = document.querySelector('#overlay');
+const overlay_button = document.querySelector('.overlay-button');
+overlay_button.addEventListener('click', restart);
+
