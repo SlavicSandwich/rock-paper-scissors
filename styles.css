@@ -21,15 +21,14 @@ body {
   align-items: center;
 }
 
-a{
-    text-decoration: none;
-    color:aquamarine;
-}
 
 
 h1 {
   font-size: 50px;
 }
+
+
+
 
 .header {
   background-color: rgb(50, 59, 100);
@@ -38,6 +37,17 @@ h1 {
   text-align: center;
   color: aquamarine;
   font-family: orbitron;
+}
+
+.headertext{
+    text-decoration: none;
+    color:aquamarine;
+    transition: .5s ease;
+}
+
+.headertext:hover{
+    color: brown;
+    font-size: 65px;
 }
 
 .main{
@@ -53,6 +63,34 @@ h1 {
     width: 100%;
     text-align: center;
 }
+
+.choice, .restart{
+    font-size: 100px;
+    color:cadetblue;
+    width: 125px;
+    height: 125px;
+    background-color: rgb(46, 52, 80);
+    border-radius: 10px;
+    border: 0;
+    transition: .07s ease;
+}
+
+.restart{
+    font-size: 25px;
+    width: 40px;
+    height: 40px;
+}
+
+.choice:hover, .restart:hover{
+    color:aqua;
+    background-color: rgb(70, 33, 91);
+    transition:.02s ease;
+}
+
+.choice:active, .restart:active{
+    background-color: rgb(47, 22, 61);
+}
+
 
 .choicebox {
   display: flex;
