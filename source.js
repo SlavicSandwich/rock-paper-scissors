@@ -60,9 +60,9 @@ function set_winner(winner){
 function restart(endgame){
     const scoreboard = document.querySelector('.scoreboard');
     const scorebox = document.querySelector('.scorebox');
-    if (endgame || scorebox.lastChild.tagName === "H3") {
+    if (endgame) {
         h3 = document.querySelector('h3');
-        h3.remove();
+        h3.textContent = '';
     }
     
     scorebox.querySelector('#winner').textContent = '';
@@ -85,7 +85,8 @@ function execute(){
 
     
     const scoreboard = document.querySelector('.scoreboard');
-    if (scorebox.lastChild.tagName === "H3"){
+    console.log(scorebox.querySelector('h3'))
+    if (scorebox.querySelector('h3').textContent != ''){
         restart(1)
     }
     if (set_winner(res) == 'tie') return
@@ -93,9 +94,8 @@ function execute(){
     score.parentNode.parentNode.classList.add('shake');
     score.textContent = +score.textContent + 1;
     if (score.textContent == 5){
-        h3 = document.createElement('h3');
+        h3 = document.querySelector('h3');
         h3.textContent = `${set_winner(res)} wins!`
-        scorebox.appendChild(h3);
     }
 }
 const restart_button = document.querySelector('.restart')

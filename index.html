@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="source.js" defer></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <title>Document</title>
-</head>
-<body>
-    <div class="choicebox">
+  </head>
+  <body>
+    <div class="header">
+      <h1><a href="">THE ROCK PAPER SCISSORS GAME</a></h1>
+    </div>
+    <div class="main">
+      <div class="choicebox">
         <h1>What will you choose?</h1>
         <div class="buttons">
-            <button class="choice">Rock</button>
-            <button class="choice">Paper</button>
-            <button class="choice">Scissors</button>
+          <button class="choice">Rock</button>
+          <button class="choice">Paper</button>
+          <button class="choice">Scissors</button>
         </div>
         <button class="restart">Restart</button>
-    </div>
-    <div class="scorebox">
+      </div>
+      <div class="scorebox">
         <h2>Win rate</h2>
         <p id="winner"></p>
         <div class="scoreboard">
-            <div class="score">
-                <p id="player">Player: <span>0</span></p>
-            </div>
-            <div class="score">
-                <p id ="computer">Computer:  <span>0</span></p>
-            </div>
+          <div class="score">
+            <p id="player">Player: <span>0</span></p>
+          </div>
+          <div class="score">
+            <p id="computer">Computer: <span>0</span></p>
+          </div>
         </div>
+        <h3></h3>
+      </div>
     </div>
-</body>
+    <div class="footer">
+        Made by Slavic_Sandwich <span>Placeholder github</span>
+    </div>
+  </body>
 </html>

@@ -1,76 +1,128 @@
-html
-{
-    overflow: hidden;
+@import url(https://fonts.googleapis.com/css?family=Poiret+One|Lobster|Anton|Shadows+Into+Light|Open+Sans|Roboto|Orbitron|Oswald|Raleway|Montserrat|Roboto+Slab|Indie+Flower|Fjalla+One|Bree+Serif|Pacifico|Abril+Fatface);
+html {
+  overflow: hidden;
 }
 
-*{
-    box-sizing: border-box;
+html,
+body {
+  height: 100%;
 }
 
-body
-{
-    margin: 0;
-    flex-direction: column;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(images/paper-background.jpg);
+* {
+  box-sizing: border-box;
 }
 
-html, body
-{
+body {
+  margin: 0;
+  flex-direction: column;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color:aquamarine;
+}
+
+
+h1 {
+  font-size: 50px;
+}
+
+.header {
+  background-color: rgb(50, 59, 100);
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  color: aquamarine;
+  font-family: orbitron;
+}
+
+.main{
+    background-color: rgb(28, 34, 62);
+    margin:0;
     height: 100%;
+    width: 100%;
 }
 
-
-
-.choicebox{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap:8px;
-
+.footer{
+    padding:20px;
+    background-color: rgb(28, 34, 62);
+    width: 100%;
+    text-align: center;
 }
 
-.buttons{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 10px;
+.choicebox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
 }
 
-
-.scorebox{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: centers;
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
 }
 
-.scoreboard{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap:20px
+.scorebox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.scoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
 
-.shake{
-    animation: shake 0.5s;
-    animation-iteration-count: 2;
+.shake {
+  animation: shake 0.5s;
+  animation-iteration-count: 2;
 }
 @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
   }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+#winner {
+  height: 10px;
+}
